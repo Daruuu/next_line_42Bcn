@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 00:44:49 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/10/06 22:06:59 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/10/07 10:21:45 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ char	*get_next_line(int fd)
 
 int	main()
 {
-
+	get_next_line(0);
 	return (0);
 }
