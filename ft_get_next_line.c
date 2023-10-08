@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 00:44:49 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/10/08 06:27:00 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/10/08 09:24:03 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,47 +38,39 @@ int	ft_strlen(char *s)
 		i++;
 	return (i);
 }
-/*
- * concate 2 str creating a malloc
-*/
-char	*ft_strjoin(char *str1, char *str2)
-{
-	char	*new_ptr;
-	int		i;
-
-	if (!str1 && !str2)
-		return (0);
-	new_ptr = malloc (sizeof(char) *(ft_strlen(str1) + ft_strlen(str2) + 1));
-	if (!new_ptr)
-		free(new_ptr);
-		return (NULL);
-	i = 0;
-	while (i < ft_strlen(str1) + ft_strlen(str2))
-	{
-		if (i < ft_strlen(str1))
-			new_ptr[i] = str1[i];
-		else
-			new_ptr[i] = str2[i - ft_strlen(str1)];
-		i++;
-	}
-	new_ptr[i] = '\0';
-	return (new_ptr);
-}
 
 /*
- * function to read a line
+ * funcion que lee una linea del fd
 */
 char	*ft_readLine(int fd)
 {
-	char	*readLine;
+	char	readLine;
 	char	*str;
 	char	*buffer;
 	int		i;
 
 	if (fd == -1)
 		return (NULL);
-	*readLine = 1;
+	str = (char *) malloc(BUFFER_SIZE);
+	buffer = (char *) malloc(1);	// leer cada character
+	if (!str || !buffer)
+	{
+		free(str);
+		free(buffer);
+		return (NULL);
+	}
+	while (readLine = (read(fd, buffer, 1)) != -1)
+	{
+		if (*buffer == '\n')
+		{
 
+		}
+		
+	}
+
+
+
+	*readLine = 1;
 
 
 
@@ -128,6 +120,7 @@ int	main()
 	return (0);
 }
 */
+/*
 int main(int argc, char const *argv[])
 {
     int fileDescriptor;
@@ -141,4 +134,4 @@ int main(int argc, char const *argv[])
 		printf("File Opened Successfully\n");
 		printf("File Descriptor: %d\n", fileDescriptor);
     }
-}
+}*/
