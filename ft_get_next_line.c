@@ -22,10 +22,10 @@
  * si hay error return NULl
  *
  */
-#include "get_next_line.h"
 
+#include "get_next_line.h"
 /*
- * get leng of string
+ * get length of string
 */
 int	ft_strlen(char *s)
 {
@@ -38,41 +38,43 @@ int	ft_strlen(char *s)
 		i++;
 	return (i);
 }
-
 /*
- * funcion que lee una linea del fd
+ * funcion que lee una linea del fd y retorna esa linea a la funcion principal
+ *
+ * Ten en cuenta que la línea devuelta debe terminar con el caracter \n,
+ * excepto si se ha llegado al final del archivo y esté termina con un caracter \0.
 */
-char	*ft_readLine(int fd)
+
+char    *ft_readLine(int fd)
 {
 	char	readLine;
-	char	*str;
+	char	*line_read;
 	char	*buffer;
 	int		i;
 
 	if (fd == -1)
 		return (NULL);
-	str = (char *) malloc(BUFFER_SIZE);
-	buffer = (char *) malloc(1);	// leer cada character
-	if (!str || !buffer)
+
+	line_read = (char *) malloc(BUFFER_SIZE);
+    // leer cada character
+	buffer = (char *) malloc(1);
+
+	if (!line_read || !buffer)
 	{
-		free(str);
+		free(line_read);
 		free(buffer);
 		return (NULL);
 	}
-	while (readLine = (read(fd, buffer, 1)) != -1)
+//	while (readLine = (read(fd, buffer, 1)) != -1)
+    readLine = (read(fd, buffer, 1)) != -1;
+    while (readLine)
 	{
 		if (*buffer == '\n')
 		{
 
 		}
-		
-	}
-
-
-
-	*readLine = 1;
-
-
+        readLine = (read(fd, buffer, 1)) != -1;
+    }
 
 	/*
 	read(fd,buffer , BUFFER_SIZE);
