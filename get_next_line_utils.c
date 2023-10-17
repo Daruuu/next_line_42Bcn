@@ -10,15 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
- * funciones auxiliares a utilizar
-*/
 #include "get_next_line.h"
 
 /*
  * join 2 strings using malloc()
 */
-char	*ft_strjoin(char *str1, char *str2)
+char    *ft_strjoin(char *str1, char *str2)
 {
 	char	*new_ptr;
 	int		i;
@@ -45,16 +42,16 @@ char	*ft_strjoin(char *str1, char *str2)
 }
 
 /*
- * get leng of string
+ * get the length of string
 */
-int	ft_strlen(char *s)
+int ft_strlen(char *str)
 {
-	int	i;
+	int i;
 
-	i = 0;
-	if (!s)
+	if (!str)
 		return (0);
-	while (s[i] != '\0')
+    i = 0;
+	while (str[i] != '\0')
 		i++;
 	return (i);
 }

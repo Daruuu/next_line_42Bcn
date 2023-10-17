@@ -12,6 +12,7 @@
 
 #include "get_next_line.h"
 
+/*
 int	main()
 {
 	char	*str1;
@@ -25,3 +26,28 @@ int	main()
 
 	return (0);
 }
+*/
+
+int main() {
+
+    int     fd;
+    char    buffer[1024];
+    ssize_t bytes_leidos;
+
+    fd = open("fd.txt", O_RDONLY);
+    if (fd == -1)
+        printf("Error al abrir el archivo");
+
+    bytes_leidos = read(fd, buffer, sizeof(BUFFER_SIZE));
+
+    if (bytes_leidos == -1) {
+        perror("Error al leer el archivo");
+        exit(1);
+    }
+
+    close(fd);
+    printf("Se leyeron %zd bytes: %s\n", bytes_leidos, buffer);
+
+    return 0;
+}
+

@@ -20,24 +20,8 @@
  * si se llega al final de linea retorna un 0 
  * mientras no llegue al final del archivo, regresara los caracteres leidos
  * si hay error return NULl
- *
  */
-
 #include "get_next_line.h"
-/*
- * get length of string
-*/
-int	ft_strlen(char *s)
-{
-	int	i;
-
-	i = 0;
-	if (!s)
-		return (0);
-	while (s[i] != '\0')
-		i++;
-	return (i);
-}
 /*
  * funcion que lee una linea del fd y retorna esa linea a la funcion principal
  *
@@ -45,55 +29,68 @@ int	ft_strlen(char *s)
  * excepto si se ha llegado al final del archivo y esté termina con un caracter \0.
 */
 
-char    *ft_readLine(int fd)
+/*
+char    *ft_readLine_File(int fd)
 {
-	char	readLine;
-	char	*line_read;
-	char	*buffer;
-	int		i;
+	char    readLine;
+	char	*linea_a_leer;
+	char	*buff_datos_leidos;
+    int     i;
+    char    *write_in_ptr;
 
+    write_in_ptr = NULL;
+    buff_datos_leidos = NULL;
 	if (fd == -1)
 		return (NULL);
-
-	line_read = (char *) malloc(BUFFER_SIZE);
-    // leer cada character
-	buffer = (char *) malloc(1);
-
-	if (!line_read || !buffer)
+    linea_a_leer = (char *) malloc(BUFFER_SIZE + 1);
+	if (!linea_a_leer || !buff_datos_leidos)
 	{
-		free(line_read);
-		free(buffer);
+		free(linea_a_leer);
+		free(buff_datos_leidos);
 		return (NULL);
 	}
-//	while (readLine = (read(fd, buffer, 1)) != -1)
-    readLine = (read(fd, buffer, 1)) != -1;
-    while (readLine)
+    readLine = (read(fd, buff_datos_leidos, BUFFER_SIZE) != -1);
+    i = 0;
+    while (readLine && (buff_datos_leidos != '\0'))
 	{
-		if (*buffer == '\n')
-		{
-
-		}
-        readLine = (read(fd, buffer, 1)) != -1;
+        write_in_ptr[i] = (char) buff_datos_leidos;
+        buff_datos_leidos++;
+        i++;
     }
-
-	/*
-	read(fd,buffer , BUFFER_SIZE);
-	if ( == -1)
-		return (-1);
-	i = 0;
-	while (read (fd,buffer , BUFFER_SIZE) != '\n')
-	{
-		str[i] =(char *) buffer;
-		buffer++;
-		i++;
-	}
-	*/
-
-	return (0);
+	return (buff_datos_leidos);
 }
-/*
- * main function
 */
+
+char    *ft_readLine_File(int fd)
+{
+    char    c;
+    char	*linea_a_leer;
+    char	*buff_datos_leidos;
+    int     i;
+
+    if (fd == -1)
+        return (NULL);
+    linea_a_leer = malloc(BUFFER_SIZE + 1);
+    if (!linea_a_leer)
+    {
+        free(linea_a_leer);
+        return (NULL);
+    }
+    buff_datos_leidos = linea_a_leer;
+    i = 0;
+    while ((char *) (read(fd, &c, 1) > 0))
+    {
+        if (c == '\n' || i >= BUFFER_SIZE)
+        {
+            *buff_datos_leidos = '\0';
+            break;
+        }
+        *buff_datos_leidos = c;
+        buff_datos_leidos++;
+        i++;
+    }
+    return (buff_datos_leidos);
+}
 
 char	*get_next_line(int fd)
 {
