@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 00:44:49 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/10/18 16:41:11 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/10/18 21:34:04 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ char    *ft_readLine_file(int fd)
 
     if (fd == -1)
         return (NULL);
-	linea_a_leer = malloc((BUFFER_SIZE + 1) * sizeof(char));
+	linea_a_leer = malloc((BUFFER_SIZE + 1));
 
     if (!linea_a_leer)
     {
@@ -78,21 +78,15 @@ char    *ft_readLine_file(int fd)
     }
     buff_datos_leidos = linea_a_leer;
     i = 0;
-    while ((read(fd, &c, 1) > 0))
+    while ((read(fd, buff_datos_leidos, BUFFER_SIZE) > 0))
     {
-        if (c == '\n' || i >= BUFFER_SIZE)
-        {
-            *buff_datos_leidos = '\0';
-            break;
-        }
-        *buff_datos_leidos = c;
+
         buff_datos_leidos++;
         i++;
     }
     return (buff_datos_leidos);
 }
 
-/*
 char	*get_next_line(int fd)
 {
 	char	eo_line;
@@ -102,9 +96,9 @@ char	*get_next_line(int fd)
 	
 	eo_line = '\n';
 	eo_file = '\0';
+
 	return (0);
 }
-*/
 
 int	main()
 {
@@ -114,12 +108,9 @@ int	main()
 	fd = open("fd.txt", O_RDONLY);
 	if (fd == -1)
 		return (1);
-//	printf("fd = %d\n", fd);
 	result = ft_readLine_file(fd);
 	printf("%s\n", result);
 
-	//get_next_line(openFd);
-	//close(fd);
-
+	close(fd);
 	return (0);
 }
