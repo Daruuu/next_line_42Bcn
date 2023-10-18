@@ -9,6 +9,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/daruuu/CLionProjects/next_line_42Bcn/ft_get_next_line.c" "CMakeFiles/next_line.dir/ft_get_next_line.c.o" "gcc" "CMakeFiles/next_line.dir/ft_get_next_line.c.o.d"
+  "/home/daruuu/CLionProjects/next_line_42Bcn/get_next_line_utils.c" "CMakeFiles/next_line.dir/get_next_line_utils.c.o" "gcc" "CMakeFiles/next_line.dir/get_next_line_utils.c.o.d"
+  "/home/daruuu/CLionProjects/next_line_42Bcn/main.c" "CMakeFiles/next_line.dir/main.c.o" "gcc" "CMakeFiles/next_line.dir/main.c.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

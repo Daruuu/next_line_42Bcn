@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 00:44:49 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/10/08 09:24:03 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/10/18 14:01:43 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 /*
  * funcion que lee una linea del fd y retorna esa linea a la funcion principal
  *
- * Ten en cuenta que la línea devuelta debe terminar con el caracter \n,
+ * la línea devuelta debe terminar con el caracter \n,
  * excepto si se ha llegado al final del archivo y esté termina con un caracter \0.
 */
 
@@ -94,13 +94,13 @@ char    *ft_readLine_File(int fd)
 
 char	*get_next_line(int fd)
 {
-	char	eoline;
-	char	eofile;
-	char	buffer[1000];
+	char	eo_line;
+	char	eo_file;
+//	char	buffer[1000];
 	char	**readfile;
 	
-	eoline = '\n';
-	eofile = '\0';
+	eo_line = '\n';
+	eo_file = '\0';
 	return (0);
 }
 /*

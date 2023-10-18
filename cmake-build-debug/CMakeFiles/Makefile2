@@ -81,12 +81,12 @@ clean: CMakeFiles/next_line.dir/clean
 CMakeFiles/next_line.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/next_line.dir/build.make CMakeFiles/next_line.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/next_line.dir/build.make CMakeFiles/next_line.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/daruuu/CLionProjects/next_line_42Bcn/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target next_line"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/daruuu/CLionProjects/next_line_42Bcn/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4 "Built target next_line"
 .PHONY : CMakeFiles/next_line.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/next_line.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/daruuu/CLionProjects/next_line_42Bcn/cmake-build-debug/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/daruuu/CLionProjects/next_line_42Bcn/cmake-build-debug/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/next_line.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/daruuu/CLionProjects/next_line_42Bcn/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/next_line.dir/rule

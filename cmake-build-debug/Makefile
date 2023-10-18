@@ -153,6 +153,54 @@ ft_get_next_line.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/next_line.dir/build.make CMakeFiles/next_line.dir/ft_get_next_line.c.s
 .PHONY : ft_get_next_line.c.s
 
+get_next_line_utils.o: get_next_line_utils.c.o
+.PHONY : get_next_line_utils.o
+
+# target to build an object file
+get_next_line_utils.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/next_line.dir/build.make CMakeFiles/next_line.dir/get_next_line_utils.c.o
+.PHONY : get_next_line_utils.c.o
+
+get_next_line_utils.i: get_next_line_utils.c.i
+.PHONY : get_next_line_utils.i
+
+# target to preprocess a source file
+get_next_line_utils.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/next_line.dir/build.make CMakeFiles/next_line.dir/get_next_line_utils.c.i
+.PHONY : get_next_line_utils.c.i
+
+get_next_line_utils.s: get_next_line_utils.c.s
+.PHONY : get_next_line_utils.s
+
+# target to generate assembly for a file
+get_next_line_utils.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/next_line.dir/build.make CMakeFiles/next_line.dir/get_next_line_utils.c.s
+.PHONY : get_next_line_utils.c.s
+
+main.o: main.c.o
+.PHONY : main.o
+
+# target to build an object file
+main.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/next_line.dir/build.make CMakeFiles/next_line.dir/main.c.o
+.PHONY : main.c.o
+
+main.i: main.c.i
+.PHONY : main.i
+
+# target to preprocess a source file
+main.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/next_line.dir/build.make CMakeFiles/next_line.dir/main.c.i
+.PHONY : main.c.i
+
+main.s: main.c.s
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/next_line.dir/build.make CMakeFiles/next_line.dir/main.c.s
+.PHONY : main.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -165,6 +213,12 @@ help:
 	@echo "... ft_get_next_line.o"
 	@echo "... ft_get_next_line.i"
 	@echo "... ft_get_next_line.s"
+	@echo "... get_next_line_utils.o"
+	@echo "... get_next_line_utils.i"
+	@echo "... get_next_line_utils.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 

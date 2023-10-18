@@ -1,1 +1,1 @@
-/usr/bin/cc -g CMakeFiles/next_line.dir/ft_get_next_line.c.o -o next_line 
+/usr/bin/cc -g CMakeFiles/next_line.dir/ft_get_next_line.c.o CMakeFiles/next_line.dir/get_next_line_utils.c.o CMakeFiles/next_line.dir/main.c.o -o next_line 

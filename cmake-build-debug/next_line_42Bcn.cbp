@@ -82,6 +82,12 @@
 		<Unit filename="/home/daruuu/CLionProjects/next_line_42Bcn/get_next_line.h">
 			<Option target="next_line"/>
 		</Unit>
+		<Unit filename="/home/daruuu/CLionProjects/next_line_42Bcn/get_next_line_utils.c">
+			<Option target="next_line"/>
+		</Unit>
+		<Unit filename="/home/daruuu/CLionProjects/next_line_42Bcn/main.c">
+			<Option target="next_line"/>
+		</Unit>
 		<Unit filename="/home/daruuu/CLionProjects/next_line_42Bcn/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
