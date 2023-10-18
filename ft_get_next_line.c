@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 00:44:49 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/10/18 14:01:43 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/10/18 16:41:11 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 */
 
 /*
-char    *ft_readLine_File(int fd)
+char    *ft_readLine_file(int fd)
 {
 	char    readLine;
 	char	*linea_a_leer;
@@ -60,8 +60,7 @@ char    *ft_readLine_File(int fd)
 	return (buff_datos_leidos);
 }
 */
-
-char    *ft_readLine_File(int fd)
+char    *ft_readLine_file(int fd)
 {
     char    c;
     char	*linea_a_leer;
@@ -70,7 +69,8 @@ char    *ft_readLine_File(int fd)
 
     if (fd == -1)
         return (NULL);
-    linea_a_leer = malloc(BUFFER_SIZE + 1);
+	linea_a_leer = malloc((BUFFER_SIZE + 1) * sizeof(char));
+
     if (!linea_a_leer)
     {
         free(linea_a_leer);
@@ -78,7 +78,7 @@ char    *ft_readLine_File(int fd)
     }
     buff_datos_leidos = linea_a_leer;
     i = 0;
-    while ((char *) (read(fd, &c, 1) > 0))
+    while ((read(fd, &c, 1) > 0))
     {
         if (c == '\n' || i >= BUFFER_SIZE)
         {
@@ -92,45 +92,34 @@ char    *ft_readLine_File(int fd)
     return (buff_datos_leidos);
 }
 
+/*
 char	*get_next_line(int fd)
 {
 	char	eo_line;
 	char	eo_file;
-//	char	buffer[1000];
+	char	buffer[1000];
 	char	**readfile;
 	
 	eo_line = '\n';
 	eo_file = '\0';
 	return (0);
 }
-/*
+*/
+
 int	main()
 {
 	int		fd;
+	char	*result;
 
 	fd = open("fd.txt", O_RDONLY);
 	if (fd == -1)
 		return (1);
+//	printf("fd = %d\n", fd);
+	result = ft_readLine_file(fd);
+	printf("%s\n", result);
 
-	printf("fd = %d\n", fd);
 	//get_next_line(openFd);
 	//close(fd);
 
 	return (0);
 }
-*/
-/*
-int main(int argc, char const *argv[])
-{
-    int fileDescriptor;
-    char buff[1000];
-
-    if ((fileDescriptor = open("fd.txt", O_RDONLY)) == -1)
-    {
-        printf("File Open Failed\n");
-        exit(0);
-    } else {
-		printf("File Opened Successfully\n");
-		printf("File Descriptor: %d\n", fileDescriptor);
-    }
-}*/

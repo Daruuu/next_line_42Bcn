@@ -1,5 +1,5 @@
-CMakeFiles/next_line.dir/ft_get_next_line.c.o: \
- /home/daruuu/CLionProjects/next_line_42Bcn/ft_get_next_line.c \
+CMakeFiles/next_line.dir/get_next_line_utils.c.o: \
+ /home/daruuu/CLionProjects/next_line_42Bcn/get_next_line_utils.c \
  /usr/include/stdc-predef.h \
  /home/daruuu/CLionProjects/next_line_42Bcn/get_next_line.h \
  /usr/include/unistd.h /usr/include/features.h \

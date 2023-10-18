@@ -33,7 +33,7 @@ char    *ft_free_line(char *str);
 
 #define BUFFER_SIZE 4096 // Tamaño del búfer de lectura
 
-char *ft_readLine_File(int fd) {
+char *ft_readLine_file(int fd) {
     char *linea_a_leer = (char *)malloc(BUFFER_SIZE + 1);
     if (!linea_a_leer) {
         return NULL;
