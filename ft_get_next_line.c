@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 00:44:49 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/10/19 15:37:25 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/10/19 22:30:07 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,40 +24,9 @@
 */
 
 /*
-char    *ft_readLine_file(int fd)
-{
-	char    readLine;
-	char	*linea_a_leer;
-	char	*buff_datos_leidos;
-    int     i;
-    char    *write_in_ptr;
-
-    write_in_ptr = NULL;
-    buff_datos_leidos = NULL;
-	if (fd == -1)
-		return (NULL);
-    linea_a_leer = (char *) malloc(BUFFER_SIZE + 1);
-	if (!linea_a_leer || !buff_datos_leidos)
-	{
-		free(linea_a_leer);
-		free(buff_datos_leidos);
-		return (NULL);
-	}
-    readLine = (read(fd, buff_datos_leidos, BUFFER_SIZE) != -1);
-    i = 0;
-    while (readLine && (buff_datos_leidos != '\0'))
-	{
-        write_in_ptr[i] = (char) buff_datos_leidos;
-        buff_datos_leidos++;
-        i++;
-    }
-	return (buff_datos_leidos);
-}
-*/
-
-/*
  * retorna 0 o 1 si ha encontrado el \0 en el buffer
 */
+
 int	ft_strchr_boolean(char *buffer_datos)
 {
 	int i;
@@ -72,51 +41,48 @@ int	ft_strchr_boolean(char *buffer_datos)
 	return (0);
 }
 	/*
-	 * TODO: que retorna read:
 	 * -1: error -> return NULL
 	 * 0: ha terminado de leer el archivo.
-	 * mayor que 0: ha leido BUFFER_SIZE caracteres
+	 * ha leido BUFFER_SIZE caracteres
 	*/
-char	*ft_readLine_file(int fd)
+char	*ft_readLine_file(int fd, char *storage)
 {
-    char	*linea_a_leer;
     char	*buff_datos_leidos;
-    int     i;
+	int		num_bits;
 
-    if (fd == -1)
-        return (NULL);
-	linea_a_leer = malloc((BUFFER_SIZE + 1) * sizeof(char));
-	if (!linea_a_leer)
-	{
+	buff_datos_leidos  = malloc((BUFFER_SIZE + 1) * sizeof(char));
+	if (!buff_datos_leidos)
 		return (NULL);
-		free(linea_a_leer);
-	}
-    i = 0;
-	//linea_a_leer = (read(fd, buff_datos_leidos, BUFFER_SIZE) > 0);
-		/*
-		 * recorrer el buffer donde has guardado lo que has ledio y ver si en la lectura
-		 * tienes ya tienes un \n
-		*/
-    while ((linea_a_leer) && (buff_datos_leidos != '\0'))
-    {
-        buff_datos_leidos++;
-        i++;
-    }
-    return (buff_datos_leidos);
+	buff_datos_leidos[0] = '\0';
+	
+	num_bits = 1;
+	while(num_bits > 0 && !ft_strchr(buffer, '\n'));
+	{
+		num_bits = read(fd, buff_datos_leidos, BUFFER_SIZE);
+		if (num_bits == -1)
+			return NULL;
+		buff_datos_leidos[num_bits] = '\0';
+		storage = ft_strjoin(storage, buffer);
+	}	
+	return storage;
 }
 
-/*
 char	*get_next_line(int fd)
 {
-	char	eo_line;
-	char	eo_file;
-	char	buffer[1000];
-	char	**readfile;
-	
-	eo_line = '\n';
-	eo_file = '\0';
+	static char *storage = NULL;
+	char *line;
 
-	return (0);
+	if(fd < 0 && BUFFER_SIZE <= 0)
+		return NULL;
+
+	storage = ft_readLine_file(fd, storage);
+	if(!storage)
+		return NULL;
+	line = extract_line(storage);
+	if(!line)
+		return NULL;
+	storage = update_storage(storage);
+	return (line);
 }
 int	main()
 {
