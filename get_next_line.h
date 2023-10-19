@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 21:08:35 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/10/19 13:29:30 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/10/19 15:17:36 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,15 @@
 char	*ft_strjoin(char *str1, char *str2);
 int		ft_strlen(char *str);
 char    *ft_free_line(char *str);
-int 	ft_strchr_boolean(char *buffer_datos, char size_buff);
+int 	ft_strchr_boolean(char *buffer_datos);
 
 #endif
 /*
- * #include <stdlib.h>
-#include <unistd.h>
-
-#define BUFFER_SIZE 4096 // Tamaño del búfer de lectura
-
 char *ft_readLine_file(int fd) {
     char *linea_a_leer = (char *)malloc(BUFFER_SIZE + 1);
     if (!linea_a_leer) {
         return NULL;
     }
-
     char *buff_datos_leidos = linea_a_leer; // Puntero para avanzar en el búfer
     int i = 0;
     char c;
@@ -69,5 +63,4 @@ char *ft_readLine_file(int fd) {
 
     return linea_a_leer;
 }
-
  */
