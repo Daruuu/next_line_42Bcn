@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 07:04:50 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/10/18 13:59:01 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/10/19 13:04:41 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,21 @@ int	main()
 }
 */
 
+// test STRCHR_BOOLEAN
+
+int main()
+{
+	char str_buff1[] = "this is a\\0string";
+	char str_buff2[] = "no null character";
+
+	printf("Testing ft_strchr_boolean:\n");
+	printf("str_buff1: %s - Result: %d\n", str_buff1, ft_strchr_boolean(str_buff1));
+	printf("str_buff2: %s - Result: %d\n", str_buff2, ft_strchr_boolean(str_buff2));
+
+	return (0);
+}
+
+/*
 int main() {
 
     int     fd;
@@ -50,4 +65,5 @@ int main() {
 
     return 0;
 }
+*/
 

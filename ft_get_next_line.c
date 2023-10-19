@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 00:44:49 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/10/18 21:34:04 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/10/19 13:06:18 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,26 +60,51 @@ char    *ft_readLine_file(int fd)
 	return (buff_datos_leidos);
 }
 */
-char    *ft_readLine_file(int fd)
+
+/*
+ * retorna 0 o 1 si ha encontrado el \0 en el buffer
+ */
+
+int	ft_strchr_boolean(char *buffer_datos)
 {
-    char    c;
-    char	*linea_a_leer;
+	int i;
+
+	i = 0;
+	while (buffer_datos[i])
+	{
+		if (buffer_datos[i] == '\0')
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+char	*ft_readLine_file(int fd)
+{
+    char	linea_a_leer;
     char	*buff_datos_leidos;
     int     i;
 
     if (fd == -1)
         return (NULL);
-	linea_a_leer = malloc((BUFFER_SIZE + 1));
+//	linea_a_leer = malloc((BUFFER_SIZE + 1) * sizeof(char));
 
-    if (!linea_a_leer)
-    {
-        free(linea_a_leer);
-        return (NULL);
-    }
-    buff_datos_leidos = linea_a_leer;
     i = 0;
-    while ((read(fd, buff_datos_leidos, BUFFER_SIZE) > 0))
+	/*
+	 * TODO: que retorna read:
+	 * -1: error -> return NULL
+	 * 0: ha terminado de leer el archivo.
+	 * mayor que 0: ha leido BUFFER_SIZE caracteres
+	*/
+	linea_a_leer = (read(fd, buff_datos_leidos, BUFFER_SIZE) > 0);
+    while ((linea_a_leer) && (buff_datos_leidos != '\0'))
     {
+
+	}
+		/*
+		 * recorrer el buffer donde has guardado lo que has ledio y ver si en la lectura
+		 * tienes ya tienes un \n
+		 */
 
         buff_datos_leidos++;
         i++;
@@ -100,6 +125,7 @@ char	*get_next_line(int fd)
 	return (0);
 }
 
+/*
 int	main()
 {
 	int		fd;
@@ -114,3 +140,4 @@ int	main()
 	close(fd);
 	return (0);
 }
+*/
