@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 07:04:50 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/10/19 13:04:41 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/10/19 13:36:26 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,41 +29,19 @@ int	main()
 */
 
 // test STRCHR_BOOLEAN
-
 int main()
 {
-	char str_buff1[] = "this is a\\0string";
-	char str_buff2[] = "no null character";
+	char str_buff01[17] = {'t', 'h', 'i',  's', ' ','i', 's', ' ','a', '\0', ' ','s', 't', 'r', 'i', 'n', 'g'};
+
+//	char str_buff02[12] = {'n','o',' ','n','u','l','l', ' ','c','h','a','r'};
+	char	size_buff01;
+//	char	size_buff02;
+	size_buff01 = sizeof(str_buff01);
+//	size_buff02 = sizeof(str_buff02);
 
 	printf("Testing ft_strchr_boolean:\n");
-	printf("str_buff1: %s - Result: %d\n", str_buff1, ft_strchr_boolean(str_buff1));
-	printf("str_buff2: %s - Result: %d\n", str_buff2, ft_strchr_boolean(str_buff2));
+	printf("str_buff01: %s - Result: %d\n", str_buff01, ft_strchr_boolean(str_buff01, size_buff01));
+//	printf("str_buff2: %s - Result: %d\n", str_buff02, ft_strchr_boolean(str_buff02, size_buff02));
 
 	return (0);
 }
-
-/*
-int main() {
-
-    int     fd;
-    char    buffer[1024];
-    ssize_t bytes_leidos;
-
-    fd = open("fd.txt", O_RDONLY);
-    if (fd == -1)
-        printf("Error al abrir el archivo");
-
-    bytes_leidos = read(fd, buffer, sizeof(BUFFER_SIZE));
-
-    if (bytes_leidos == -1) {
-        perror("Error al leer el archivo");
-        exit(1);
-    }
-
-    close(fd);
-    printf("Se leyeron %zd bytes: %s\n", bytes_leidos, buffer);
-
-    return 0;
-}
-*/
-

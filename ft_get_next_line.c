@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 00:44:49 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/10/19 13:06:18 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/10/19 13:38:45 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,20 +65,22 @@ char    *ft_readLine_file(int fd)
  * retorna 0 o 1 si ha encontrado el \0 en el buffer
  */
 
-int	ft_strchr_boolean(char *buffer_datos)
+int	ft_strchr_boolean(char *buffer_datos, char size_buff)
 {
 	int i;
 
 	i = 0;
-	while (buffer_datos[i])
+	while (buffer_datos[i] < size_buff)
 	{
 		if (buffer_datos[i] == '\0')
-			return (1);
+//			return (1);
+			return (buffer_datos[i]);
 		i++;
 	}
 	return (0);
 }
 
+/*
 char	*ft_readLine_file(int fd)
 {
     char	linea_a_leer;
@@ -90,27 +92,32 @@ char	*ft_readLine_file(int fd)
 //	linea_a_leer = malloc((BUFFER_SIZE + 1) * sizeof(char));
 
     i = 0;
-	/*
+	*/
+/*
 	 * TODO: que retorna read:
 	 * -1: error -> return NULL
 	 * 0: ha terminado de leer el archivo.
 	 * mayor que 0: ha leido BUFFER_SIZE caracteres
-	*/
+	*//*
+
 	linea_a_leer = (read(fd, buff_datos_leidos, BUFFER_SIZE) > 0);
     while ((linea_a_leer) && (buff_datos_leidos != '\0'))
     {
 
 	}
-		/*
+		*/
+/*
 		 * recorrer el buffer donde has guardado lo que has ledio y ver si en la lectura
 		 * tienes ya tienes un \n
-		 */
+		 *//*
+
 
         buff_datos_leidos++;
         i++;
     }
     return (buff_datos_leidos);
 }
+*/
 
 char	*get_next_line(int fd)
 {

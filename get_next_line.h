@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 21:08:35 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/10/19 13:09:36 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/10/19 13:29:30 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 char	*ft_strjoin(char *str1, char *str2);
 int		ft_strlen(char *str);
 char    *ft_free_line(char *str);
-int 	ft_strchr_boolean(char *buffer_datos);
+int 	ft_strchr_boolean(char *buffer_datos, char size_buff);
 
 #endif
 /*
