@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 21:37:14 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/10/18 13:59:01 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/10/23 20:06:25 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,48 @@ int ft_strlen(char *str)
 	return (i);
 }
 
+int	ft_strchr(char *str, int c)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == (char)c)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+char	*ft_strchr_str(char *str, int c)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (str[i] && str[i] != c)
+		i++;
+	if (str[i] == '\0')
+		return (NULL);
+	return (&str[i]);
+}
+
+char	*ft_extract_line(char *storage)
+{
+	char	*line;
+	int		size_line;
+	char	*aux_line;
+
+	aux_line = ft_strchr_str(storage, '\n');
+	size_line = aux_line - storage + 1;
+
+	if (!line)
+
+}
+
 char	*ft_free_line(char *str)
 {
-	return (0);
-
+	free(str);
+	str = NULL;
+	return (NULL);
 }
