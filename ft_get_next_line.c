@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 00:44:49 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/10/23 20:07:17 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/10/25 23:26:40 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	ft_strchr_boolean(char *buffer_datos)
 	 * 0: ha terminado de leer el archivo.
 	 * ha leido BUFFER_SIZE caracteres
 	*/
-char	*ft_readLine_file(int fd, char *storage)
+char	*ft_read_line_file(int fd, char *storage)
 {
     char	*buff_datos_leidos;
 	int		num_bits;
@@ -56,6 +56,7 @@ char	*ft_readLine_file(int fd, char *storage)
 	buff_datos_leidos[0] = '\0';
 	
 	num_bits = 1;
+	/*PROBLEMS HERE*/
 	while(num_bits > 0 && (!ft_strchr(storage, '\n')))
 	{
 		num_bits = read(fd, buff_datos_leidos, BUFFER_SIZE);
@@ -75,10 +76,10 @@ char	*get_next_line(int fd)
 
 	if(fd < 0 && BUFFER_SIZE <= 0)
 		return NULL;
-	storage = ft_readLine_file(fd, storage);
+	storage = ft_read_line_file(fd, storage);
 	if(!storage)
 		return NULL;
-	line = extract_line(storage);
+	line = ft_extract_line(storage);
 	if(!line)
 		return NULL;
 	storage = update_storage(storage);
@@ -99,4 +100,3 @@ int	main()
 	close(fd);
 	return (0);
 }
-*/

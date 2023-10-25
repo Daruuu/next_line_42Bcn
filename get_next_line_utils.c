@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 21:37:14 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/10/23 20:06:25 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/10/25 23:24:10 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 /*
  * join 2 strings using malloc()
 */
+
 char    *ft_strjoin(char *str1, char *str2)
 {
 	char	*new_ptr;
@@ -42,7 +43,7 @@ char    *ft_strjoin(char *str1, char *str2)
 }
 
 /*
- * get the length of string
+ * return length of string
 */
 int ft_strlen(char *str)
 {
@@ -56,7 +57,8 @@ int ft_strlen(char *str)
 	return (i);
 }
 
-int	ft_strchr(char *str, int c)
+/*
+int	ft_strchr_int(char *str, int c)
 {
 	int	i;
 
@@ -69,8 +71,9 @@ int	ft_strchr(char *str, int c)
 	}
 	return (0);
 }
+*/
 
-char	*ft_strchr_str(char *str, int c)
+char	*ft_strchr(char *str, int c)
 {
 	unsigned int	i;
 
@@ -82,17 +85,31 @@ char	*ft_strchr_str(char *str, int c)
 	return (&str[i]);
 }
 
+/*
+ * esta funcion extrae un string 
+ * el STORAGE  
+ * extraemos si encontramos un  '/0' en el archivo,
+ * cuando tengamos esa longitud
+ * rellenamos la LINEA a devolver con el contenido STORAGE
+ * hasta la longitud que hemos obtenido en LINE_COPY.
+*/
+
 char	*ft_extract_line(char *storage)
 {
-	char	*line;
-	int		size_line;
-	char	*aux_line;
+	char	*line_copy;
+	int		size_line_to_extract;
+	char	*line_return;
+	int		i;
 
-	aux_line = ft_strchr_str(storage, '\n');
-	size_line = aux_line - storage + 1;
-
-	if (!line)
-
+	line_copy = ft_strchr(storage, '\n');
+	size_line_to_extract = (line_copy - storage) + 1;
+	while (i < size_line_to_extract)
+	{
+		line_return[i] = line_copy[i];
+		i++;
+	}
+	line_return[i] = '\0';
+	return (line_return);
 }
 
 char	*ft_free_line(char *str)
