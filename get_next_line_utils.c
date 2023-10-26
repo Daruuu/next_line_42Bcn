@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 21:37:14 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/10/25 23:24:10 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/10/26 17:18:25 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ int ft_strlen(char *str)
 	return (i);
 }
 
-/*
 int	ft_strchr_int(char *str, int c)
 {
 	int	i;
@@ -71,8 +70,7 @@ int	ft_strchr_int(char *str, int c)
 	}
 	return (0);
 }
-*/
-
+/*
 char	*ft_strchr(char *str, int c)
 {
 	unsigned int	i;
@@ -84,6 +82,7 @@ char	*ft_strchr(char *str, int c)
 		return (NULL);
 	return (&str[i]);
 }
+*/
 
 /*
  * esta funcion extrae un string 
@@ -101,14 +100,18 @@ char	*ft_extract_line(char *storage)
 	char	*line_return;
 	int		i;
 
-	line_copy = ft_strchr(storage, '\n');
+	line_copy = ft_strchr_int(storage, '\n');
 	size_line_to_extract = (line_copy - storage) + 1;
+	line_return =malloc(size_line_to_extract * sizeof(char*) + 1) ;
+	if (!line_return)
+		return (NULL);
+	i = 0;
 	while (i < size_line_to_extract)
 	{
 		line_return[i] = line_copy[i];
 		i++;
 	}
-	line_return[i] = '\0';
+	//line_return[i] = '\0';
 	return (line_return);
 }
 

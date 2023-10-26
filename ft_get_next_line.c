@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 00:44:49 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/10/25 23:26:40 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/10/26 16:54:19 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ char	*ft_read_line_file(int fd, char *storage)
 	buff_datos_leidos[0] = '\0';
 	
 	num_bits = 1;
-	/*PROBLEMS HERE*/
+/*PROBLEMS HERE*/
 	while(num_bits > 0 && (!ft_strchr(storage, '\n')))
 	{
 		num_bits = read(fd, buff_datos_leidos, BUFFER_SIZE);
@@ -71,8 +71,8 @@ char	*ft_read_line_file(int fd, char *storage)
 
 char	*get_next_line(int fd)
 {
-	static char *storage = NULL;
-	char *line;
+	static char	*storage = NULL;
+	char		*line;
 
 	if(fd < 0 && BUFFER_SIZE <= 0)
 		return NULL;
@@ -85,7 +85,7 @@ char	*get_next_line(int fd)
 	storage = update_storage(storage);
 	return (line);
 }
-
+/*
 int	main()
 {
 	int		fd;
@@ -100,3 +100,4 @@ int	main()
 	close(fd);
 	return (0);
 }
+*/
