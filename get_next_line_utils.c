@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 21:37:14 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/10/26 17:18:25 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/10/26 20:29:42 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,6 @@ int ft_strlen(char *str)
 {
 	int i;
 
-	if (!str)
-		return (0);
     i = 0;
 	while (str[i] != '\0')
 		i++;
@@ -64,25 +62,26 @@ int	ft_strchr_int(char *str, int c)
 	i = 0;
 	while (str[i])
 	{
-		if (str[i] == (char)c)
+		if (str[i] == c)
 			return (1);
 		i++;
 	}
 	return (0);
 }
-/*
+
 char	*ft_strchr(char *str, int c)
 {
 	unsigned int	i;
 
 	i = 0;
+	if (!str)
+		return (NULL);
 	while (str[i] && str[i] != c)
 		i++;
 	if (str[i] == '\0')
 		return (NULL);
 	return (&str[i]);
 }
-*/
 
 /*
  * esta funcion extrae un string 
@@ -96,22 +95,14 @@ char	*ft_strchr(char *str, int c)
 char	*ft_extract_line(char *storage)
 {
 	char	*line_copy;
-	int		size_line_to_extract;
+	int		size_line;
 	char	*line_return;
-	int		i;
 
-	line_copy = ft_strchr_int(storage, '\n');
-	size_line_to_extract = (line_copy - storage) + 1;
-	line_return =malloc(size_line_to_extract * sizeof(char*) + 1) ;
+	line_copy = ft_strchr(storage, '\n');
+	size_line = (line_copy - storage) + 1;
+	line_return = ;
 	if (!line_return)
 		return (NULL);
-	i = 0;
-	while (i < size_line_to_extract)
-	{
-		line_return[i] = line_copy[i];
-		i++;
-	}
-	//line_return[i] = '\0';
 	return (line_return);
 }
 
@@ -120,4 +111,19 @@ char	*ft_free_line(char *str)
 	free(str);
 	str = NULL;
 	return (NULL);
+}
+
+
+char	*ft_substr(char *str, unsigned int start, size_t len)
+{
+	char			*new_str;
+	unsigned int	size_str;
+	size_t			i;
+
+	size_str = ft_strlen(str);
+
+
+
+
+	return ();
 }
