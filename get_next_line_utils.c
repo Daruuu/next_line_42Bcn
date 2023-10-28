@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 21:37:14 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/10/26 20:29:42 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/10/28 16:14:04 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 /*
  * join 2 strings using malloc()
 */
-
 char    *ft_strjoin(char *str1, char *str2)
 {
 	char	*new_ptr;
@@ -55,6 +54,7 @@ int ft_strlen(char *str)
 	return (i);
 }
 
+/*
 int	ft_strchr_int(char *str, int c)
 {
 	int	i;
@@ -68,6 +68,7 @@ int	ft_strchr_int(char *str, int c)
 	}
 	return (0);
 }
+*/
 
 char	*ft_strchr(char *str, int c)
 {
@@ -100,7 +101,7 @@ char	*ft_extract_line(char *storage)
 
 	line_copy = ft_strchr(storage, '\n');
 	size_line = (line_copy - storage) + 1;
-	line_return = ;
+//	line_return = ;
 	if (!line_return)
 		return (NULL);
 	return (line_return);
@@ -113,7 +114,6 @@ char	*ft_free_line(char *str)
 	return (NULL);
 }
 
-
 char	*ft_substr(char *str, unsigned int start, size_t len)
 {
 	char			*new_str;
@@ -121,8 +121,17 @@ char	*ft_substr(char *str, unsigned int start, size_t len)
 	size_t			i;
 
 	size_str = ft_strlen(str);
+	i = 0;
+	if (!str)
+		return (NULL);
+	if (start > size_str)
+		return ("");
+	while (str[i] != '\0')
+	{
 
 
+		i++;
+	}
 
 
 	return ();
