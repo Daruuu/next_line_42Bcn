@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 21:37:14 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/10/28 16:14:04 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/10/29 23:18:02 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,15 +95,23 @@ char	*ft_strchr(char *str, int c)
 
 char	*ft_extract_line(char *storage)
 {
-	char	*line_copy;
+	char	*position_newline;
 	int		size_line;
 	char	*line_return;
+	int 	i;
 
-	line_copy = ft_strchr(storage, '\n');
-	size_line = (line_copy - storage) + 1;
-//	line_return = ;
+	position_newline = ft_strchr(storage, '\n');
+	size_line = (position_newline - storage) + 1;
+	line_return = (char *) malloc(size_line * sizeof(char)) ;
 	if (!line_return)
 		return (NULL);
+	i = 0;
+	while (i < size_line)
+	{
+		line_return[i] = storage[i];
+		i++;
+	}
+	line_return[i] = '\0';
 	return (line_return);
 }
 
@@ -114,6 +122,35 @@ char	*ft_free_line(char *str)
 	return (NULL);
 }
 
+char	*ft_update_storage(char *storage)
+{
+	char	*ptr_newline;
+	char	*rest_of_line;
+	int		size_rest_of_line;
+	int 	i;
+
+	ptr_newline = ft_strchr(storage, '\n') + 1;
+	if (!ptr_newline)
+		return (NULL);
+	size_rest_of_line = 0;
+	while (ptr_newline[size_rest_of_line] != NULL)
+		size_rest_of_line++;
+	//sumar 1 al malloc si da error
+	rest_of_line = (char *) malloc( size_rest_of_line * sizeof(char));
+	if (!rest_of_line)
+		return (NULL);
+	i = 0;
+	while (i < size_rest_of_line)
+	{
+		rest_of_line[i] = ptr_newline[i];
+		i++;
+	}
+	ft_free_line(storage);
+	storage = rest_of_line;
+	return (storage);
+}
+
+/*
 char	*ft_substr(char *str, unsigned int start, size_t len)
 {
 	char			*new_str;
@@ -136,3 +173,4 @@ char	*ft_substr(char *str, unsigned int start, size_t len)
 
 	return ();
 }
+*/

@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 00:44:49 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/10/26 16:54:19 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/10/29 23:18:54 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,24 +48,31 @@ int	ft_strchr_boolean(char *buffer_datos)
 char	*ft_read_line_file(int fd, char *storage)
 {
     char	*buff_datos_leidos;
-	int		num_bits;
+	int		num_bytes;
 
 	buff_datos_leidos  = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buff_datos_leidos)
 		return (NULL);
 	buff_datos_leidos[0] = '\0';
-	
-	num_bits = 1;
+
+	num_bytes = 1;
 /*PROBLEMS HERE*/
-	while(num_bits > 0 && (!ft_strchr(storage, '\n')))
+/*
+ * is no se cumple ft_strchr() == 0
+ * si se cumple ft_strchr() == distinto de 0
+ */
+	while(num_bytes > 0 && (!ft_strchr(storage, '\n')))
 	{
-		num_bits = read(fd, buff_datos_leidos, BUFFER_SIZE);
-		if (num_bits == -1)
+		/*
+		 * read(de donde leo, almaceno lo que leo, cantidad por lectura)
+		 */
+		num_bytes += read(fd, buff_datos_leidos, BUFFER_SIZE);
+		if (num_bytes == -1)
 			return NULL;
 		else
 			storage = ft_strjoin(storage, buff_datos_leidos);
 	}	
-	buff_datos_leidos[num_bits] = '\0';
+	buff_datos_leidos[num_bytes] = '\0';
 	return storage;
 }
 
@@ -79,10 +86,11 @@ char	*get_next_line(int fd)
 	storage = ft_read_line_file(fd, storage);
 	if(!storage)
 		return NULL;
+	line = NULL;
 	line = ft_extract_line(storage);
 	if(!line)
 		return NULL;
-	storage = update_storage(storage);
+	storage = ft_update_storage(storage);
 	return (line);
 }
 /*
