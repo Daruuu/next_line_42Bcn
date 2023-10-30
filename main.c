@@ -6,11 +6,28 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 07:04:50 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/10/26 16:07:40 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/10/30 19:37:55 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+int	main()
+{
+	int		fd;
+	char	*result;
+
+	fd = open("fd.txt", O_RDONLY);
+	if (fd == -1)
+		return (0);
+	printf("%s", get_next_line(fd));
+	while ()
+	{
+
+	}
+	close(fd);
+	return (0);
+}
 
 /*
 int	main()
@@ -41,6 +58,7 @@ int main()
 }
 */
 
+/*
 int	main()
 {
 	char	*str;
@@ -53,3 +71,4 @@ int	main()
 
 	return (0);
 }
+*/

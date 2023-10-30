@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 21:37:14 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/10/29 23:18:02 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/10/30 19:45:34 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,9 +133,9 @@ char	*ft_update_storage(char *storage)
 	if (!ptr_newline)
 		return (NULL);
 	size_rest_of_line = 0;
-	while (ptr_newline[size_rest_of_line] != NULL)
+	while (!(ptr_newline[size_rest_of_line] == NULL))
 		size_rest_of_line++;
-	//sumar 1 al malloc si da error
+//sumar 1 al malloc si da error
 	rest_of_line = (char *) malloc( size_rest_of_line * sizeof(char));
 	if (!rest_of_line)
 		return (NULL);
