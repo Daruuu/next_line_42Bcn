@@ -5,7 +5,7 @@ CFLAGS= -Wall -Wextra -Werror
 RM = rm -f
 
 LIB= ar rc
-NAME= get_next_line.a
+NAME= get_next_line
 HEADER= get_next_line.h
 
 SRCS=	ft_get_next_line.c \

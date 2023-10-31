@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 07:04:50 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/10/30 19:37:55 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/10/31 23:38:10 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,16 @@ int	main()
 	int		fd;
 	char	*result;
 
-	fd = open("fd.txt", O_RDONLY);
+	fd = open("/home/daruuu/CLionProjects/next_line_42Bcn/fd.txt", O_RDONLY);
 	if (fd == -1)
-		return (0);
-	printf("%s", get_next_line(fd));
-	while ()
 	{
-
+		printf("error opened file");
+		return (1);
+	}
+	while ((result == get_next_line(fd)))
+	{
+		printf("%s\n", result);
+		free(result);
 	}
 	close(fd);
 	return (0);
