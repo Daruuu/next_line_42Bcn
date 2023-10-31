@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 21:37:14 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/10/30 19:45:34 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/10/31 23:20:29 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,22 +53,6 @@ int ft_strlen(char *str)
 		i++;
 	return (i);
 }
-
-/*
-int	ft_strchr_int(char *str, int c)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] == c)
-			return (1);
-		i++;
-	}
-	return (0);
-}
-*/
 
 char	*ft_strchr(char *str, int c)
 {
@@ -122,6 +106,7 @@ char	*ft_free_line(char *str)
 	return (NULL);
 }
 
+/*
 char	*ft_update_storage(char *storage)
 {
 	char	*ptr_newline;
@@ -149,7 +134,34 @@ char	*ft_update_storage(char *storage)
 	storage = rest_of_line;
 	return (storage);
 }
+*/
 
+char	*ft_update_storage(char *storage)
+{
+	char	*ptr_newline;
+	char	*rest_of_line;
+	int		size_rest_of_line;
+	int 	i;
+
+	ptr_newline = ft_strchr(storage, '\n');
+	if (!ptr_newline)
+		return (NULL);
+	size_rest_of_line = ft_strlen(ptr_newline + 1);
+
+//sumar 1 al malloc si da error
+	rest_of_line = (char *) malloc( size_rest_of_line * sizeof(char) + 1);
+	if (!rest_of_line)
+		return (NULL);
+	i = 0;
+	while (i < size_rest_of_line)
+	{
+		rest_of_line[i] = ptr_newline[i];
+		i++;
+	}
+	ft_free_line(storage);
+	storage = rest_of_line;
+	return (storage);
+}
 /*
 char	*ft_substr(char *str, unsigned int start, size_t len)
 {
