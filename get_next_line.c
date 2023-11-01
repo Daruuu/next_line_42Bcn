@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 00:44:49 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/11/01 15:01:53 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/11/01 15:49:20 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ char	*get_next_line(int fd)
 	if(fd < 0 && BUFFER_SIZE <= 0)
 		return NULL;
 	storage = ft_read_line_file(fd, storage);
+	printf("%s\n", storage);
 	if(!storage)
 		return NULL;
 	line = NULL;
@@ -74,11 +75,13 @@ int	main()
 		printf("error opened file");
 		return (1);
 	}
-	while (result == get_next_line(fd))
+	printf("%s\n", get_next_line(fd));
+	/*
+	while (!(result == get_next_line(fd)))
 	{
 		printf("%s\n", result);
 		free(result);
-	}
+	}*/
 	close(fd);
 	return (0);
 }
