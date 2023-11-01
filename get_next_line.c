@@ -1,46 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_next_line.c                                 :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 00:44:49 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/10/29 23:18:54 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/11/01 15:01:53 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
- * importante es que read retorna un -1 si hay un error, 
- * si se llega al final de linea retorna un 0 
- * mientras no llegue al final del archivo, regresara los caracteres leidos
- * si hay error return NULl
-*/
 #include "get_next_line.h"
 /*
- * funcion que lee una linea del fd y retorna esa linea a la funcion principal
- * la línea devuelta debe terminar con el caracter \n,
- * excepto si se ha llegado al final del archivo y esté termina con un caracter \0.
-*/
-
-/*
- * retorna 0 o 1 si ha encontrado el \0 en el buffer
-*/
-
-int	ft_strchr_boolean(char *buffer_datos)
-{
-	int i;
-
-	i = 0;
-	while (i < BUFFER_SIZE)
-	{
-		if (buffer_datos[i] == '\0')
-			return (1);
-		i++;
-	}
-	return (0);
-}
-	/*
 	 * -1: error -> return NULL
 	 * 0: ha terminado de leer el archivo.
 	 * ha leido BUFFER_SIZE caracteres
@@ -56,11 +27,8 @@ char	*ft_read_line_file(int fd, char *storage)
 	buff_datos_leidos[0] = '\0';
 
 	num_bytes = 1;
-/*PROBLEMS HERE*/
-/*
- * is no se cumple ft_strchr() == 0
- * si se cumple ft_strchr() == distinto de 0
- */
+/* is no se cumple ft_strchr() == 0
+ * si se cumple ft_strchr() == distinto de 0 */
 	while(num_bytes > 0 && (!ft_strchr(storage, '\n')))
 	{
 		/*
@@ -93,19 +61,24 @@ char	*get_next_line(int fd)
 	storage = ft_update_storage(storage);
 	return (line);
 }
-/*
+
 int	main()
 {
 	int		fd;
 	char	*result;
 
+	result = NULL;
 	fd = open("fd.txt", O_RDONLY);
 	if (fd == -1)
+	{
+		printf("error opened file");
 		return (1);
-//	result = ft_readLine_file(fd);
-	printf("%s\n", result);
-
+	}
+	while (result == get_next_line(fd))
+	{
+		printf("%s\n", result);
+		free(result);
+	}
 	close(fd);
 	return (0);
 }
-*/

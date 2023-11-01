@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 21:37:14 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/10/31 23:20:29 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/11/01 13:37:55 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,8 +177,6 @@ char	*ft_substr(char *str, unsigned int start, size_t len)
 		return ("");
 	while (str[i] != '\0')
 	{
-
-
 		i++;
 	}
 

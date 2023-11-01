@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 21:08:35 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/10/31 23:33:51 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/11/01 13:35:55 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@
 char	*ft_strjoin(char *str1, char *str2);
 int		ft_strlen(char *str);
 char    *ft_free_line(char *str);
-int 	ft_strchr_boolean(char *buffer_datos);
 char	*ft_readline_file(int fd, char *storage);
 char	*ft_strchr(char *str, int c);
 char	*ft_extract_line(char *storage);

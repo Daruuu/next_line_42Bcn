@@ -1,31 +1,34 @@
+HEADER	=	get_next_line.h
 
-CC= cc
-CFLAGS= -Wall -Wextra -Werror
+NAME	=	get_next_line.a
 
-RM = rm -f
+SRCS	=	get_next_line.c \
+			get_next_line_utils.c
 
-LIB= ar rc
-NAME= get_next_line
-HEADER= get_next_line.h
+OBJS	= 	$(SRCS:.c=.o)
 
-SRCS=	ft_get_next_line.c \
-		get_next_line_utils.c \
+CC	= 	gcc
 
-OBJS=		$(SRCS:.c=.o)
-%.o:%.c		$(HEADER) Makefile
-			$(CC) $(CFLAGS) -c $< -o $@
+RM	= 	rm -f
 
-all:		$(NAME)
+LIBC	= 	ar -rcs
 
-$(NAME):	$(OBJS)
-			$(LIB) $(NAME) $(OBJS)
+FLAGS	= 	-Wall -Wextra -Werror
+
+.c.o :
+	${CC} ${FLAGS} -c $< -o $@
+
+$(NAME): ${OBJS} ${HEADER}
+	$(LIBC) $(NAME) $(OBJS)
+
+all: $(NAME)
+
+fclean: clean
+	$(RM) $(NAME)
 
 clean:
-			$(RM) $(OBJS)
+	$(RM) $(OBJS)
 
-fclean:		clean
-			$(RM) $(NAME)
+re: fclean all
 
-re:			fclean all
-
-.PHONY: 	all clean fclean re
+.PHONY: all clean fclean re
