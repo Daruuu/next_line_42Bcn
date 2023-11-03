@@ -1,19 +1,18 @@
-HEADER	=	get_next_line.h
+HEADER=	get_next_line.h
 
-NAME	=	get_next_line.a
+NAME=	get_next_line.a
 
-SRCS	=	get_next_line.c \
-			get_next_line_utils.c
+SRCS=	get_next_line.c get_next_line_utils.c \
 
-OBJS	= 	$(SRCS:.c=.o)
+OBJS= 	$(SRCS:.c=.o)
 
-CC	= 	gcc
+CC= 	gcc
 
-RM	= 	rm -f
+RM= 	rm -f
 
-LIBC	= 	ar -rcs
+LIBC= 	ar -rcs
 
-FLAGS	= 	-Wall -Wextra -Werror
+FLAGS= 	-Wall -Wextra -Werror
 
 .c.o :
 	${CC} ${FLAGS} -c $< -o $@
