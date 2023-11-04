@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 21:37:14 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/11/03 21:10:03 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/11/03 21:17:23 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 char	*ft_strjoin(char *str1, char *str2)
 {
 	char	*new_ptr;
+	int		len_str1;
+	int		len_str2;
 	int		i;
 	int		j;
 
@@ -25,7 +27,10 @@ char	*ft_strjoin(char *str1, char *str2)
 			return (0);
 		str1[0] = '\0';
 	}
-	new_ptr = malloc (sizeof(char) * (ft_strlen(str1) + ft_strlen(str2) + 1));
+	len_str1 = ft_strlen(str1);
+	len_str2 = ft_strlen(str2);
+	//new_ptr = malloc (sizeof(char) * (ft_strlen(str1) + ft_strlen(str2) + 1));
+	new_ptr = malloc (sizeof(char) * (len_str1 + len_str2 + 1));
 	if (!new_ptr)
 	{
 		free(str1);

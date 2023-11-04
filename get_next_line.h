@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 21:08:35 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/11/03 21:06:45 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/11/03 21:23:38 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <fcntl.h>
 
 # ifndef BUFFER_SIZE
-# define BUFFER_SIZE
+# define BUFFER_SIZE 1
 # endif
 
 char	*ft_strjoin(char *str1, char *str2);
