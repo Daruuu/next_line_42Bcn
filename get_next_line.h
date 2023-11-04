@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 21:08:35 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/11/01 16:20:45 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/11/03 21:06:45 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@
 # include <fcntl.h>
 
 # ifndef BUFFER_SIZE
-# define BUFFER_SIZE 50
+# define BUFFER_SIZE
 # endif
 
 char	*ft_strjoin(char *str1, char *str2);
 int		ft_strlen(char *str);
-char    *ft_free_line(char *str);
+char	*ft_free_line(char *str);
 char	*ft_readline_file(int fd, char *storage);
 char	*ft_strchr(char *str, int c);
 char	*ft_extract_line(char *storage);
