@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 21:37:14 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/11/03 21:17:23 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/11/05 04:39:48 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,43 +15,41 @@
 char	*ft_strjoin(char *str1, char *str2)
 {
 	char	*new_ptr;
-	int		len_str1;
-	int		len_str2;
 	int		i;
 	int		j;
 
 	if (!str1)
 	{
 		str1 = malloc(sizeof(char) * 1);
-		if (str1 == NULL)
+		if (!str1)
 			return (0);
 		str1[0] = '\0';
 	}
-	len_str1 = ft_strlen(str1);
-	len_str2 = ft_strlen(str2);
-	//new_ptr = malloc (sizeof(char) * (ft_strlen(str1) + ft_strlen(str2) + 1));
-	new_ptr = malloc (sizeof(char) * (len_str1 + len_str2 + 1));
+	new_ptr = malloc (sizeof(char) * (ft_strlen(str1) + ft_strlen(str2) + 1));
 	if (!new_ptr)
 	{
 		free(str1);
 		return (NULL);
 	}
-	i = 0;
-	while (str1[i])
-	{
+	i = -1;
+	while (str1[++i])
 		new_ptr[i] = str1[i];
-		i++;
-	}
-	j = 0;
-	while (str2[j])
-	{
+	j = -1;
+	while (str2[++j])
 		new_ptr[i + j] = str2[j];
-		j++;
-	}
 	new_ptr[i + j] = '\0';
 	free(str1);
 	return (new_ptr);
 }
+
+/*
+int	ft_strlen_str(char *str, int i)
+{
+	while (str[i] != '\0')
+		i++;
+	return (i);
+}
+*/
 
 int	ft_strlen(char *str)
 {
@@ -113,10 +111,10 @@ char	*ft_extract_line(char *storage)
 	return (line_return);
 }
 /*
-char	*ft_free_line(char *str)
+char	*ft_free_line(char *storage)
 {
-	free(str);
-	str = NULL;
+	free(storage);
+	storage = NULL;
 	return (NULL);
 }
 */
@@ -141,12 +139,9 @@ char	*ft_update_storage(char *storage)
 		free(storage);
 		return (NULL);
 	}
-	i = 0;
-	while (i < size_rest_of_line)
-	{
+	i = -1;
+	while (++i < size_rest_of_line)
 		rest_of_line[i] = ptr_newline[i + 1];
-		i++;
-	}
 	rest_of_line[i] = '\0';
 	free (storage);
 	storage = rest_of_line;

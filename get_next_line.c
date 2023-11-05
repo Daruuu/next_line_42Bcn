@@ -6,11 +6,17 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 00:44:49 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/11/03 21:18:54 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/11/05 06:36:34 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+void	ft_aux_free(char *buffer, char *storage)
+{
+	free(storage);
+	free(buffer);
+}
 
 char	*ft_read_line_file(int fd, char *storage)
 {
@@ -30,8 +36,7 @@ char	*ft_read_line_file(int fd, char *storage)
 		num_bytes = read(fd, buff_datos_leidos, BUFFER_SIZE);
 		if (num_bytes == -1)
 		{
-			free(buff_datos_leidos);
-			free(storage);
+			ft_aux_free(buff_datos_leidos, storage);
 			return (NULL);
 		}
 		else
@@ -65,7 +70,7 @@ char	*get_next_line(int fd)
 	storage = ft_update_storage(storage);
 	return (line);
 }
-/*
+
 int	main()
 {
 	int		fd;
@@ -78,8 +83,11 @@ int	main()
 		printf("error opened file");
 		return (1);
 	}
-	printf("%s\n", get_next_line(fd));
+	result = get_next_line(fd);
+	while (result)
+	{
+		printf("contenido del archivo: |%s\n|", result);
+	}
 	close(fd);
 	return (0);
 }
-*/
