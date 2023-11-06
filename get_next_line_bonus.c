@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/25 00:44:49 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/11/06 20:45:55 by dasalaza         ###   ########.fr       */
+/*   Created: 2023/11/06 18:53:47 by dasalaza          #+#    #+#             */
+/*   Updated: 2023/11/06 20:35:59 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 void	ft_aux_free(char *buffer, char *storage)
 {
@@ -49,23 +49,23 @@ char	*ft_read_line_file(int fd, char *storage, int num_bytes)
 
 char	*get_next_line(int fd)
 {
-	static char	*storage = NULL;
+	static char	*storage[OPEN_MAX];
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	if (!storage || (storage && !ft_strchr(storage, '\n')))
-		storage = ft_read_line_file(fd, storage, 1);
-	if (!storage)
+	if (!storage[fd] || (storage[fd] && !ft_strchr(storage[fd], '\n')))
+		storage[fd] = ft_read_line_file(fd, storage[fd], 1);
+	if (!storage[fd])
 		return (NULL);
-	line = ft_extract_line(storage);
+	line = ft_extract_line(storage[fd]);
 	if (!line)
 	{
-		free(storage);
-		storage = NULL;
+		free(storage[fd]);
+		storage[fd] = NULL;
 		return (NULL);
 	}
-	storage = ft_update_storage(storage);
+	storage[fd] = ft_update_storage(storage[fd]);
 	return (line);
 }
 /*
@@ -74,21 +74,20 @@ char	*get_next_line(int fd)
 int	main()
 {
 	int		fd;
+	int		fd2;
 	char	*result;
 
 	result = NULL;
 	fd = open("fd.txt", O_RDONLY);
-	if (fd == -1)
-	{
-		printf("error opened file");
-		return (1);
-	}
-	result = get_next_line(fd);
-	while (result)
-	{
-		printf("contenido del archivo: |%s\n|", result);
-	}
+	fd2 = open("fd2.txt", O_RDONLY);
+	printf("file 1 line 1: %s\n", get_next_line(fd));
+	printf("file 2 line 1: %s\n", get_next_line(fd2));
+	printf("file 1 line 2: %s\n", get_next_line(fd));
+	printf("file 2 line 2: %s\n", get_next_line(fd2));
+	printf("file 1 line 3: %s\n", get_next_line(fd));
+	
 	close(fd);
+	close(fd2);
 	return (0);
 }
 */

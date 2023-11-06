@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 21:37:14 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/11/06 20:45:11 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/11/06 20:39:08 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 int	ft_strlen(char *str)
 {
@@ -50,6 +50,7 @@ char	*ft_strjoin(char *str1, char *str2, int i)
 	return (new_ptr);
 }
 
+
 char	*ft_strchr(char *str, int c)
 {
 	unsigned int	i;
@@ -63,15 +64,6 @@ char	*ft_strchr(char *str, int c)
 		return (NULL);
 	return (&str[i]);
 }
-
-/*
- * esta funcion extrae un string 
- * el STORAGE  
- * extraemos si encontramos un  '/0' en el archivo,
- * cuando tengamos esa longitud
- * rellenamos la LINEA a devolver con el contenido STORAGE
- * hasta la longitud que hemos obtenido en LINE_COPY.
-*/
 
 char	*ft_extract_line(char *storage)
 {
@@ -99,14 +91,6 @@ char	*ft_extract_line(char *storage)
 	line_return[i] = '\0';
 	return (line_return);
 }
-/*
-char	*ft_free_line(char *storage)
-{
-	free(storage);
-	storage = NULL;
-	return (NULL);
-}
-*/
 
 char	*ft_update_storage(char *storage)
 {
