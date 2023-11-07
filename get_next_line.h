@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 21:08:35 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/11/06 20:44:01 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/11/07 21:51:10 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,5 @@ char	*ft_strjoin(char *str1, char *str2, int i);
 char	*ft_strchr(char *str, int c);
 char	*ft_update_storage(char *storage);
 char	*ft_extract_line(char *storage);
+char	*get_next_line(int fd);
 #endif

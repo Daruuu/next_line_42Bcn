@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 18:53:47 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/11/06 20:35:59 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/11/07 22:02:23 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,9 @@ char	*get_next_line(int fd)
 	storage[fd] = ft_update_storage(storage[fd]);
 	return (line);
 }
+
 /*
 #include <stdio.h>
-
 int	main()
 {
 	int		fd;

@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 21:37:14 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/11/06 20:39:08 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/11/06 22:15:59 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ char	*ft_strjoin(char *str1, char *str2, int i)
 	free(str1);
 	return (new_ptr);
 }
-
 
 char	*ft_strchr(char *str, int c)
 {
